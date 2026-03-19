@@ -1,20 +1,11 @@
 package equipement;
 
 public class Chaudron {
-    private int quantite;
-    private int forcePotion;
-
-    public Chaudron() {
-        this.quantite = 0;
-        this.forcePotion = 0;
-    }
+    private int quantite = 0 ;
+    private int forcePotion = 0;
 
     public int getQuantite() {
         return quantite;
-    }
-
-    public int getForcePotion() {
-        return forcePotion;
     }
 
     public boolean resterPotion() {
@@ -26,9 +17,14 @@ public class Chaudron {
         this.forcePotion = forcePotion;
     }
 
-    public void puiserPotion() {
-        if (quantite > 0) {
-            quantite--;
+    
+    public int prendreLouche() {
+        quantite--;
+        if (quantite < 1) {
+        	forcePotion = 0;
         }
+        return forcePotion;
+        
+        
     }
 }
