@@ -42,7 +42,7 @@ public class Gaulois {
         }
     }
 
-    // --- TP2 partie 1f : sePresenter ---
+    
     public void sePresenter() {
         if (village == null) {
             parler("Bonjour, je m'appelle " + nom + ". Je voyage de villages en villages.");

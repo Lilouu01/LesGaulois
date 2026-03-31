@@ -11,8 +11,8 @@ public enum Equipement {
         this.nom = nom;
     }
 
-    @Override
+    @Override 
     public String toString() {
         return nom;
-    }
+    } 
 }
