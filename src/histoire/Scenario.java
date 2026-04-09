@@ -25,10 +25,10 @@ public class Scenario {
         milexcus.sEquiper(Equipement.CASQUE);
         minus.parler("UN GAU... UN GAUGAU...");
 
-        // Bug b corrigé : >= 0 au lieu de > 0 pour prendre en compte l'égalité
+       
         do {
             asterix.frapper(minus);
-            // Bug d : si égalité (force absorbée), Minus nargue et Obélix aide
+            
             if (minus.getForce() > 0) {
                 minus.parler("Alors Asterix on fait moins le malin face à mon équipement, Hi ! Hi !");
                 obelix.parler("Asterix, tu veux un peu d'aide ?");
@@ -36,7 +36,7 @@ public class Scenario {
             }
         } while (minus.getForce() > 0);
 
-        // PARTIE 5 : décommenté
+       
         milexcus.parler("UN GAU... UN GAUGAU...");
         do {
             obelix.frapper(milexcus);

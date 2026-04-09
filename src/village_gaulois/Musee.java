@@ -8,13 +8,13 @@ public class Musee {
     private Trophee[] trophees = new Trophee[200];
     private int nbTrophee = 0;
 
-    // --- Partie 5b : donnerTrophees ---
+   
     public void donnerTrophees(Gaulois gaulois, Equipement equipement) {
         trophees[nbTrophee] = new Trophee(gaulois, equipement);
         nbTrophee++;
     }
 
-    // --- Partie 5 point 2 : extraireInstructionsOCaml ---
+   
     public String extraireInstructionsOCaml() {
         StringBuilder sb = new StringBuilder("let musee = [\n");
         for (int i = 0; i < nbTrophee; i++) {
@@ -29,3 +29,4 @@ public class Musee {
         return sb.toString();
     }
 }
+

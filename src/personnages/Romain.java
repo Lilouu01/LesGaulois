@@ -7,7 +7,7 @@ public class Romain {
     private int force;
     private Equipement[] equipements = new Equipement[2];
     private int nbEquipement = 0;
-    private String texte;
+    
 
     public Romain(String nom, int force) {
         this.nom = nom;
@@ -19,7 +19,7 @@ public class Romain {
         return nom;
     }
 
-    // --- Getter force (demandé en partie 4) ---
+    
     public int getForce() {
         return force;
     }
@@ -36,17 +36,16 @@ public class Romain {
         return force >= 0;
     }
 
-    // Ancienne recevoirCoup mise en commentaire, nouvelle version TP3 :
+    
     public Equipement[] recevoirCoup(int forceCoup) {
         Equipement[] equipementEjecte = null;
-        forceCoup = calculerResistanceEquipement(forceCoup); // Bug a corrigé : nom en camelCase
+        forceCoup = calculerResistanceEquipement(forceCoup); 
         force -= forceCoup;
 
-        // Bug a : le switch était inversé (case 0 disait "Aïe" alors qu'il devrait abandonner)
-        // Correction : force <= 0 → abandonner, sinon → Aïe
+        
         if (force <= 0) {
             force = 0;
-            equipementEjecte = ejecterEquipement();
+            equipementEjecte = ejecterEquipement();  
             parler("J'abandonne...");
         } else {
             parler("Aïe");
@@ -56,23 +55,22 @@ public class Romain {
         return equipementEjecte;
     }
 
-    // Bug clean code S100 : renommé en camelCase + verbe
+   
     private int calculerResistanceEquipement(int forceCoup) {
-        texte = "Ma force est de " + this.force + ", et la force du coup est de " + forceCoup;
+        String texte = "Ma force est de " + this.force + ", et la force du coup est de " + forceCoup;	
         int resistanceEquipement = 0;
-        if (nbEquipement != 0) { // Bug S1940 : simplifié
+        if (nbEquipement != 0) { 
             texte += "\nMais heureusement, grâce à mon équipement sa force a été ";
-            for (int i = 0; i < nbEquipement; i++) { // Bug S127 : i++ dans le for
-                // Bug S1125 : comparaison directe avec ==, pas .equals()
+            for (int i = 0; i < nbEquipement; i++) { 
+               
                 if (equipements[i] != null && equipements[i] == Equipement.BOUCLIER) {
-                    // Bug e : bouclier = 6 au lieu de 8
+                   
                     resistanceEquipement += 6;
                 } else {
-                    resistanceEquipement += 3; // Bug e : casque = 3 au lieu de 5
+                    resistanceEquipement += 3;
                 }
             }
-            // Bug S2757 : texte =+ était faux (assignait +resistanceEquipement)
-            // Correction : vérifier si absorbé totalement ou partiellement
+            
             if (forceCoup <= resistanceEquipement) {
                 texte += "complètement absorbée.";
             } else {
@@ -92,7 +90,7 @@ public class Romain {
         System.out.println("L'équipement de " + nom + " s'envole sous la force du coup.");
         int nbEquipementEjecte = 0;
         for (int i = 0; i < nbEquipement; i++) {
-            if (equipements[i] != null) {  // Bug S3626 : supprimé continue, inversé la logique
+            if (equipements[i] != null) {  
                 equipementEjecte[nbEquipementEjecte] = equipements[i];
                 nbEquipementEjecte++;
                 equipements[i] = null;

@@ -20,6 +20,6 @@ public class Trophee {
     }
 
     public String donnerNom() {
-        return gaulois.getNom();
+        return gaulois.getNom(); 
     }
 }
