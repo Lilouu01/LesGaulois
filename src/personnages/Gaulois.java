@@ -23,11 +23,11 @@ public class Gaulois {
     }
 
     public void setVillage(Village village) {
-        this.village = village;
+        this.village = village; 
     }
 
     public void parler(String texte) {
-        System.out.println(prendreParole() + "\"" + texte + "\""); 
+        System.out.println(prendreParole() + "\"" + texte + "\"");
     }
 
 
@@ -73,7 +73,8 @@ public class Gaulois {
             StringBuilder message = new StringBuilder("Je donne au musee tous mes trophees :");
             for (int i = 0; i < nbTrophees; i++) {
                 if (trophees[i] != null) {
-                    message.append("\n- ").append(trophees[i]);
+                    message.append("\n- ");
+                    message.append(trophees[i]);
                     musee.donnerTrophees(this, trophees[i]);
                     trophees[i] = null;
                 }
